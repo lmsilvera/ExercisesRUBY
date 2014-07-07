@@ -10,8 +10,8 @@ def num_primo(num)
   bool_primo
 end
 
-def fibonacci_sequence_file(cantidad)
-  (6...cantidad+6).each do |i|
+def fibonacci_sequence_file(l_inf, l_sup)
+  (l_inf...l_sup).each do |i|
     h_file = File.new("#{serie_fibonacci(i)}.txt", "w")
     num_fib = serie_fibonacci(i)
     text_file = "#{num_fib}\n\n"
@@ -24,5 +24,8 @@ def fibonacci_sequence_file(cantidad)
   p "¡Listo!"
 end
 
-p "Digite la cantidad de numeros con los que desea hacer el ejercicio"
-fibonacci_sequence_file(gets().to_i)
+p "Digite el limite inferior con el cual desea realizar el ejercicio"
+l_inferior = gets().to_i
+p "Digite el limite superior con el cual desea realizar el ejercicio"
+l_superior = gets().to_i
+fibonacci_sequence_file(l_inferior, l_superior)
