@@ -29,8 +29,9 @@ resolvemos este ejercicio:
     @@a = 2
     a = 3
   end
+```
   Write your code which outputs like this:
-
+```
   1
   2
   3
