@@ -19,21 +19,21 @@ resolvemos este ejercicio:
 
   Could you get the values from outside the class A ?
 
-  class A\n
-    def initialize\n
-      @a = 11\n
-      @@a = 22\n
-      a = 33\n
-    end\n
-    @a = 1\n
-    @@a = 2\n
-    a = 3\n
-  end\n
-  Write your code which outputs like this:\n
+  class A
+    def initialize
+      @a = 11
+      @@a = 22
+      a = 33
+    end
+    @a = 1
+    @@a = 2
+    a = 3
+  end
+  Write your code which outputs like this:
 
-  1\n
-  2\n
-  3\n
-  11\n
-  22\n
-  33\n
+  1
+  2
+  3
+  11
+  22
+  33
