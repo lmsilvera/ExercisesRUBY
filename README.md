@@ -4,6 +4,7 @@ ExercisesRUBY
 ## e1_file_handling.rb
 
 en este archivo está resuelto el ejercicio:
+
 Given the Fibonacci sequence write a program that:
 
 Receives two numbers one is the starting position of the fibonacci sequence and the other is the number of items to generate.
