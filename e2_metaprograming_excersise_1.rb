@@ -9,8 +9,6 @@ prueba = class A
   a = 3
 end
 
-puts "\n"
-
 puts A.instance_variable_get(:@a)
 puts A.class_variable_get(:@@a)
 puts prueba
