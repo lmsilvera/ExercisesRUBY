@@ -13,6 +13,7 @@ The program Will generate a file for each of the numbers of the fibonacci sequen
 
 Inside that file the program must put if the number is prime. If the number is not prime it will have to put the list of numbers which the number is divisible by.
 ```
+>Run this exercise, paste this code in your terminal `ruby e1_file_handling.rb`
 
 ### e2_metaprograming_excersise_1.rb
 
@@ -40,6 +41,8 @@ resolvemos este ejercicio:
   22
   33
 ```
+>Run this exercise, paste this code in your terminal `ruby e2_metaprograming_excersise_1.rb`
+
 ### e3_metaprograming_excersise_2.rb
 
 In this file is resolved next exercise:
@@ -57,3 +60,4 @@ Add your code to display 'I like metaprogramming.'
   # write your code here to display 'I like metaprogramming.'
 ```
 Hints: const_get, send
+>Run this exercise, paste this code in your terminal `ruby e3_metaprograming_excersise_2.rb`
