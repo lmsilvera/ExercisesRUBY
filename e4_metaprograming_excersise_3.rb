@@ -20,3 +20,11 @@ class Exe3
 		end
 	end
 end
+
+animal = "dog"
+class << animal
+	def speak
+		puts "#{self.capitalize} says Woof!"
+	end
+end
+animal.speak
