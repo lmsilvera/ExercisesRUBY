@@ -49,7 +49,7 @@ class String
 			when "4"
 				@@respuesta += "¯¯¯|"
 			when "5"
-					@@respuesta += "¯¯¯|"
+				@@respuesta += "¯¯¯|"
 			when "6"
 				@@respuesta += "|¯¯|"
 			when "7"
