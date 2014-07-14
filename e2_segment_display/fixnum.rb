@@ -17,7 +17,7 @@ class String
 			case valor
 			when "1"
 				@@respuesta += "   |"
-			when "2" || "7"
+			when "2"
 				@@respuesta += "¯¯¯|"
 			when "3"
 					@@respuesta += "¯¯¯|"
@@ -29,7 +29,7 @@ class String
 				@@respuesta += "|¯¯¯"
 			when "7"
 				@@respuesta += "¯¯¯|"
-			when "8" || "9" || "0"
+			when "8"
 				@@respuesta += "|¯¯|"
 			when "9"
 				@@respuesta += "|¯¯|"
