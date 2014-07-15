@@ -12,24 +12,36 @@ class Database
       puts e
     end
   end
+
   def insert(placa)
     @@database.execute "INSERT INTO Cars VALUES('#{placa}', '#{Time.now}')"
   end
+
   def listing_money
     # stm = @@database.prepare "SELECT * FROM Cars LIMIT 5" 
     # rs = stm.execute    
     # rs.each do |row|
     #     puts row.join "\s"
     # end
-    @@database = SQLite3::Database.open "test.db"
+    # @@database = SQLite3::Database.open "test.db"
     @@database.results_as_hash = true
         
     ary = @@database.execute "SELECT * FROM Cars LIMIT 5"    
-    
+    puts "placa   total"
     ary.each do |row|
-      printf "%s $%s\n", row['placa'], ((Time.now.to_i - Time.parse(row['time'].to_s).to_i) / 60) * 100
+      printf "%s  $%s\n", row['placa'], ((Time.now.to_i - Time.parse(row['time'].to_s).to_i) / 60) * 100
     end
   end
+
+  def check_out(placa)
+    @@database.results_as_hash = true
+    ary = @@database.execute "SELECT * FROM Cars WHERE placa='#{placa}'"
+    ary.each do |row|
+      puts "El auto con placa #{placa} paga: $#{((Time.now.to_i - Time.parse(row['time'].to_s).to_i) / 60) * 100}"
+    end
+    @@database.execute "delete from cars where placa='#{placa}';"
+  end
+
   def close
     @@database.close
   end
@@ -42,6 +54,7 @@ def e3
     puts "Que desea hacer"
     puts "1) Registro/Check-in carro"
     puts "2) Check-out carro"
+    puts "3) Listar carros"
     puts "0) Salir"
     @res = gets().chomp.to_i
     case @res
@@ -49,6 +62,9 @@ def e3
       puts "Escriba la placa del carro a registrar:"
       datos.insert(gets().chomp)
     when 2
+      puts "Digite la placa sel carro sale"
+      datos.check_out(gets().chomp)
+    when 3
       puts ""
       datos.listing_money
       puts ""
