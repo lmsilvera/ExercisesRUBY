@@ -5,38 +5,29 @@ class Database
       @@database = SQLite3::Database.open "test.db"
       @@database.execute "CREATE TABLE IF NOT EXISTS Cars (placa text PRIMARY KEY, time text)"      
     rescue SQLite3::Exception => e
-      puts "Exception occured"
-      puts e
+      puts "Exception Initialize: #{e}"
     end
   end
 
-  def insert(placa)
+  def insert(table, plate)
     begin
-      @@database.execute "INSERT INTO Cars VALUES('#{placa}', '#{Time.now}')"
+      @@database.execute "INSERT INTO #{table} VALUES('#{plate}', '#{Time.now}')"
     rescue SQLite3::Exception => e
-      puts "Error: '#{e}'"
+      puts "Exception insert: '#{e}'"
     end
   end
 
-  def listing_money
-    @@database.results_as_hash = true
-        
-    ary = @@database.execute "SELECT * FROM Cars LIMIT 5"
-    puts "───────────cars──────────"
-    puts "placa   total"
-    ary.each do |row|
-      printf "%s  $%s\n", row['placa'], ((Time.now.to_i - Time.parse(row['time'].to_s).to_i) / 60) * 100
+  def select_all(table, whereClause = "", limit = 5)
+    begin
+      @@database.results_as_hash = true
+      ary = @@database.execute "SELECT * FROM #{table} #{whereClause} LIMIT #{limit}"
+    rescue Exception => e
+      puts "Exception select_all: #{e}"
     end
-    puts "─────────────────────────"
   end
 
-  def check_out(placa)
-    @@database.results_as_hash = true
-    ary = @@database.execute "SELECT * FROM Cars WHERE placa='#{placa}'"
-    ary.each do |row|
-      puts "El auto con placa #{placa} paga: $#{((Time.now.to_i - Time.parse(row['time'].to_s).to_i) / 60) * 100}"
-    end
-    @@database.execute "delete from cars where placa='#{placa}';"
+  def delete(table, whereClause)    
+    @@database.execute "delete from #{table} #{whereClause};"
   end
 
   def close

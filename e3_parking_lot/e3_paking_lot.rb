@@ -1,37 +1,38 @@
+require 'rubygems'
+require 'highline/import'
 require 'sqlite3'
 require 'time'
-load 'database.rb'
-
+load 'car.rb'
 def clear
   system('clear')
 end
-def e3
+def parking_lot
   clear
   @res = 1
-  datos = Database.new
-  while @res != 0
-    puts "Que desea hacer"
-    puts "1) Registro/Check-in carro"
-    puts "2) Check-out carro"
-    puts "3) Listar carros"
-    puts "0) Salir"
-    @res = gets().chomp.to_i
-    case @res
+  cars = Cars.new
+  while @res.to_i != 0
+    @res = ask("Que desea hacer\n1) Registro/Check-in carro\n2) Check-out carro\n3) Listar carros\n0) Salir")
+    case @res.to_i
     when 0
-      datos.close
+      cars.close
       clear
     when 1
       clear
-      puts "Escriba la placa del carro a registrar:"
-      datos.insert(gets().chomp)
+      placa = ask("Escriba la placa del carro a registrar:").to_s
+      if placa.verify_plate
+        cars.new_car(placa)
+      else
+        puts "No es una placa valida para un auto"
+      end
     when 2
       clear
-      puts "Digite la placa sel carro sale"
-      datos.check_out(gets().chomp)
+      cars.check_out_car(ask("Digite la placa sel carro sale"))
     when 3
       clear
-      datos.listing_money
+      cars.listing_cars
     end
   end
 end
-e3
+#parking_lot
+
+parking_lot

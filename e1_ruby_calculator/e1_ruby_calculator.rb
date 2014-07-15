@@ -1,20 +1,14 @@
+require 'rubygems'
+require 'highline/import'
+load 'operaciones.rb'
+
 def ruby_calculator
   puts "Digite numero cada numero que desea operar, seguido la operacion"
   @signo = 1
   @valores = ""
   while @signo != 0
-    puts "Digite numero a operar"
-    @valores += "#{gets().chomp}"
-    puts "Digite numero de la operacion a realizar:"
-    puts "1) +"
-    puts "2) -"
-    puts "3) *"
-    puts "4) /"
-    puts "5) √x"
-    puts "6) x!"
-    puts "7) x^n"
-    puts "0) calcular/salir"
-    @signo = gets().chomp
+    @valores += ask("Digite numero a operar")    
+    @signo = ask("Digite numero de la operacion a realizar:\n1) +\n2) -\n3) *\n4) /\n5) √x\n6) x!\n7) x^n\n0) calcular/salir")
     valor_actual = eval(@valores)
     case @signo
     when "0"
@@ -29,17 +23,13 @@ def ruby_calculator
     when "4"
       @valores += "/"
     when "5"
-      p "Resultado: #{Math.sqrt(valor_actual)}"
+      p "Resultado: #{Operaciones.raiz_value(valor_actual)}"
       @signo = 0
     when "6"
-      res1 = 1
-      1.upto(valor_actual){ |x| res1 *= x }
-      p "Resultado: #{res1}"
+      p "Resultado: #{Operaciones.factorial(valor_actual)}"
       @signo = 0
     when "7"
-      puts "A que numero desea elevar la expresion"
-      n = gets().chomp
-      p "Resultado: #{valor_actual ** n.to_i}"
+      p "Resultado: #{Operaciones.base_n(valor_actual, ask("A que numero desea elevar la expresion").to_i)}"
       @signo = 0
     else
       cls
