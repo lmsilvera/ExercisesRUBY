@@ -61,3 +61,69 @@ Add your code to display 'I like metaprogramming.'
 ```
 Hints: const_get, send
 >Run this exercise, paste this code in your terminal `ruby e3_metaprograming_excersise_2.rb`
+
+
+### e1_ruby_calculator/
+
+En esta carpeta está resuelto el siguiente ejercicio:
+
+```
+Using ruby, OOP concepts you first project is to create a ruby calculator.
+
+The calculator will have the following functions:
+
+-Addition
+-Subtraction
+-Multiplication
+-Division
+
+Besides that, the calculator should include:
+
+-Square Root
+-Factorial
+-Base to the exponent Power. b^n
+The calculator should be accessed via the shell.
+```
+>Run this exercise, paste this code in your terminal `ruby e1_ruby_calculator.rb`
+
+
+### e2_segment_display/
+
+En esta carpeta está resuelto el siguiente ejercicio:
+
+```
+The segments display is the following:
+
+The ruby program must ask for a number, then It should display the number in bit segments.
+
+For example:
+
+$ Please type your number: 
+$ 123
+```
+>Run this exercise, paste this code in your terminal `ruby e2_segment_display.rb`
+
+### e3_parking_lot/
+
+En esta carpeta está resuelto el siguiente ejercicio:
+
+```
+Using ruby, OOP, bundler, and gems you need to build a parking lot software.
+
+The software must let you:
+
+register cars.
+
+ask for cars plate number which must be 3 letters and 3 numbers (ex: EUU123)
+Check-in cars.
+
+ask for a plate number that must be previously registered
+Checkout cars.
+
+shows you a list of registered cars, and then allows you to select one and show the amount to be paid.
+The cars must pay for minute in the parking lot, the value of the minute is 100 pesos.
+```
+>Run this exercise, paste this code in your terminal `ruby e3_parking_lot.rb`
+
+
+
