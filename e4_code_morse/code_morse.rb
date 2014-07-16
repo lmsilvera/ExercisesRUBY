@@ -20,6 +20,26 @@ class Code_Morse
   def letter_to_morse(letter)
     result_letter = ""
     case letter.downcase
+    when "0"
+      result_letter = "-----"
+    when "1"
+      result_letter = ".----"
+    when "2"
+      result_letter = "..---"
+    when "3"
+      result_letter = "...--"
+    when "4"
+      result_letter = "....-"
+    when "5"
+      result_letter = "....."
+    when "6"
+      result_letter = letter_to_morse("4").reverse
+    when "7"
+      result_letter = letter_to_morse("3").reverse
+    when "8"
+      result_letter = letter_to_morse("2").reverse
+    when "9"
+      result_letter = letter_to_morse("1").reverse
     when "a"
       result_letter = ".-"
     when "b"
@@ -133,6 +153,26 @@ class Code_Morse
       result_morse = "y"
     when letter_to_morse("z")
       result_morse = "z"
+    when letter_to_morse("0")
+      result_morse = "0"
+    when letter_to_morse("1")
+      result_morse = "1"
+    when letter_to_morse("2")
+      result_morse = "2"
+    when letter_to_morse("3")
+      result_morse = "3"
+    when letter_to_morse("4")
+      result_morse = "4"
+    when letter_to_morse("5")
+      result_morse = "5"
+    when letter_to_morse("6")
+      result_morse = "6"
+    when letter_to_morse("7")
+      result_morse = "7"
+    when letter_to_morse("8")
+      result_morse = "8"
+    when letter_to_morse("9")
+      result_morse = "9"
     end
     result_morse
   end

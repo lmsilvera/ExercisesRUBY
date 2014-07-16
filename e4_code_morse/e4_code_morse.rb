@@ -11,9 +11,9 @@ def code_morse
     when "0"
       break
     when "1"
-      puts morse.to_morse(ask("Escriba aqui su texto"))
+      puts morse.to_morse(ask("Escriba aqui su texto").to_s)
     when "2"
-      puts morse.to_string(ask("Escriba aqui su morse"))
+      puts morse.to_string(ask("Escriba aqui su morse").to_s)
     end
   end
 end
