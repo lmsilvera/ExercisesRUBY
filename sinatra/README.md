@@ -14,3 +14,5 @@ This folder is solved previous exercises with sinatra method.
 - e5_ruby_scrapper
 
 ```
+
+>Run this exercise, paste this code in your terminal `ruby main.rb`
