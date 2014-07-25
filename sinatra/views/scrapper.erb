@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css">
+    *{
+      margin: 0;
+      padding: 0;
+      outline: 0;
+    }
+    html{
+      background-color: #eee;
+      font-family: Helvetica;
+      font-size: 20px;
+    }
+    form{
+      text-align: center;
+      margin: auto;
+      max-width: 60%;
+      width: 100%;
+    }
+    form input[type=text]{
+      font-size: 20px;
+      font-family: Helvetica;
+      width: calc(100% - 10px);
+      display: inline-block;
+      padding: 5px;
+    }
+    form input[type="button"]{
+      font-size: 20px;
+      font-family: Helvetica;
+      width: calc(25% - 5px);
+      display: inline-block;
+      position: relative;
+    }
+  </style>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+  <form method="post" name="form1">
+    <label>Digite url del articulo de amazon</label>
+    <input type="text" name="url" placeholder="http://www.amazon.com/gp/product/B000EH2RLO/ref=s9_simh_gw_p468_d2_i4?pf_rd_m=ATVPDKIKX0DER&pf_rd_s=center-5&pf_rd_r=0GA4TV0NC5QKGPQAGR5B&pf_rd_t=101&pf_rd_p=1688200422&pf_rd_i=507846">
+    <input type="submit" value="Traer informacion">
+  </form>
+</body>
+</html>

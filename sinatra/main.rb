@@ -1,6 +1,9 @@
+require 'open-uri'
 require 'sinatra' #archivo del servidor
 require 'sqlite3' #sqlite(database) para el ejericio parking lot
-require 'time' 
+require 'time'
+require 'nokogiri'
+load 'scrapper.rb'
 #importo archivo string.rb para el segment display
 #importo archivo car.rb para el parking lot
 #importo archivo code_morse.rb para code morse exercise
@@ -101,4 +104,10 @@ end
 # accion para traducir de codigo morsa a texto
 post '/code/texto' do
   Code_Morse.new.to_string(params[:words].to_s)
+end
+
+######### scrapper #####################
+
+post '/scrapper' do
+  Skp.new.ruby_scrapper(params[:url]).to_s #metodo para traer la informacion de productos en www.amazon.com
 end
