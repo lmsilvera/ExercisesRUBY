@@ -1,9 +1,68 @@
+<% require 'sqlite3' %>
+<% require 'time' %>
+<% load 'car.rb' %>
 <!doctype html>
 <html>
 <head>
-	<title></title>
+  <title>Parking lot</title>
+  <style type="text/css">
+    *{
+      margin: 0;
+      padding: 0;
+      outline: 0;
+    }
+    html{
+      background-color: #eee;
+      font-family: Helvetica;
+      font-size: 20px;
+    }
+    form{
+      text-align: center;
+      margin: auto;
+      max-width: 60%;
+      width: 100%;
+    }
+    form input[type=text]{
+      font-size: 20px;
+      font-family: Helvetica;
+      width: calc(100% - 10px);
+      display: inline-block;
+      padding: 5px;
+    }
+    form input[type="button"]{
+      font-size: 20px;
+      font-family: Helvetica;
+      width: calc(25% - 5px);
+      display: inline-block;
+      position: relative;
+    }
+  </style>
 </head>
 <body>
-
+  <h1>Lista de carros</h1>
+  <% array = Cars.new.listing_cars %>
+  <table border=1>
+    <thead>
+      <tr>
+        <td>Placa</td>
+        <td>Hora de entrada</td>
+        <td>Debe pagar</td>
+        <td>Acciones</td>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- listando los carros en una tables -->
+      <% array.each do |value| %>
+      <tr>
+        <td><%= value["placa"] %></td>
+        <td><%= value["time"] %></td>
+        <!-- calculo aqui cuanto debe cada carro -->
+        <td>$<%=  ((Time.now.to_i - Time.parse(value["time"].to_s).to_i) / 60) * 100 %></td>
+        <td><a href="/parking/<%= value["placa"] %>/eliminar" onclick="return confirm('Seguro que desea realizar esta accion')">cheackout</a></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <a href="/parking/new">Nuevo carro</a>
 </body>
 </html>
