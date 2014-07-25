@@ -3,13 +3,17 @@ require 'sqlite3' #sqlite(database) para el ejericio parking lot
 require 'time' 
 #importo archivo string.rb para el segment display
 #importo archivo car.rb para el parking lot
+#importo archivo code_morse.rb para code morse exercise
 load 'string.rb'
 load 'car.rb'
+load 'code_morse.rb'
 #coloca los enlaces para los ejercicios
 get '/' do  
   '<a href="/calculator">Calculator</a><br>
   <a href="/segment">Segment Display</a><br>
-  <a href="/parking">Parking Lot</a>'
+  <a href="/parking">Parking Lot</a><br>
+  <a href="/code">Code Morse</a><br>
+  <a href="/scrapper">Ruby Scrapper</a><br>'
 end
 #formulario de la calculadora
 get '/calculator' do
@@ -30,6 +34,16 @@ end
 #nuevo carro
 get '/parking/new' do
   erb :parking_new
+end
+
+#formulario que se introducen los datos y se realiza la traduccion a codigo morsa
+get '/code' do
+  erb :code
+end
+
+#formulario para realizar un scrapper a www.amazon.com
+get '/scrapper' do
+  erb :scrapper
 end
 
 ######### calculator ##########################
@@ -77,4 +91,14 @@ get '/parking/*/eliminar' do
   cars2 = Cars.new
   cars2.check_out_car(params[:splat].join('').to_s) #le hago checkout (elimino de la bd) al carro
   redirect '/parking'
+end
+
+######### Code morse #####################
+# accion para traducir de texto a codigo morsa
+post '/code/morse' do
+  Code_Morse.new.to_morse(params[:words].to_s) #llamo la clse Code_Morse.to_morse para traducir el texto
+end
+# accion para traducir de codigo morsa a texto
+post '/code/texto' do
+  Code_Morse.new.to_string(params[:words].to_s)
 end
